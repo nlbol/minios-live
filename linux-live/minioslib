@@ -1481,7 +1481,7 @@ build_iso() {
 
     DIR="${WORK_DIR}/image"
 
-    if [[ "${DESKTOP_ENVIRONMENT}" =~ ^(xfce-ultra|xfce-puzzle|xfce-puzzle-base)$ ]]; then
+    if [[ "${DESKTOP_ENVIRONMENT}" =~ ^(xfce-ultra|xfce-puzzle|xfce-minunux|xfce-puzzle-base)$ ]]; then
         IMAGE="${LIVEKITNAME}-${DISTRIBUTION}-${DESKTOP_ENVIRONMENT}${LANGID}"
     else
         IMAGE="${LIVEKITNAME}-${DISTRIBUTION}-${DESKTOP_ENVIRONMENT}-${PACKAGE_VARIANT}${LANGID}"
