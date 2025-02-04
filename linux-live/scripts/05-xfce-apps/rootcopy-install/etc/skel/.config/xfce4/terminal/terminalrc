@@ -30,3 +30,4 @@ BackgroundDarkness=0.950000
 FontUseSystem=TRUE
 ShortcutsNoMenukey=TRUE
 ShortcutsNoHelpkey=TRUE
+ScrollingUnlimited=TRUE
