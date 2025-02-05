@@ -188,7 +188,7 @@ done
 copy_including_deps "/$LMK/kernel/drivers/staging/zsmalloc" # needed by zram
 copy_including_deps "/$LMK/kernel/drivers/block/zram"
 copy_including_deps "/$LMK/kernel/drivers/block/loop."*
-copy_including_deps "/$LMK/kernel/drivers/block/nbd."* # for Rescuezilla
+#copy_including_deps "/$LMK/kernel/drivers/block/nbd."* # for Rescuezilla
 copy_including_deps "/$LMK/kernel/drivers/md/dm-mod."* # for Ventoy
 
 # usb drivers
@@ -224,7 +224,7 @@ fi
 
 copy_including_deps "/$LMK/kernel/drivers/ata"
 copy_including_deps "/$LMK/kernel/drivers/nvme"
-copy_including_deps "/$LMK/kernel/drivers/mmc"
+#copy_including_deps "/$LMK/kernel/drivers/mmc" # for MicroSD
 
 # network support drivers
 if [ "$NETWORK" = "true" ]; then

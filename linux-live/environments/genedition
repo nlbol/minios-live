@@ -1,0 +1,63 @@
+#!/bin/bash
+
+# Verificar si 'dialog' está instalado
+if ! command -v dialog &>/dev/null; then
+    echo "Error: 'dialog' no está instalado. Instálalo con: sudo apt install dialog"
+    exit 1
+fi
+
+# Obtener el nombre del directorio destino
+NOMBRE_DIR=$(dialog --inputbox "Ingrese el nombre del directorio:" 10 50 3>&1 1>&2 2>&3)
+
+# Si se canceló, salir
+if [ -z "$NOMBRE_DIR" ]; then
+    clear
+    echo "Operación cancelada."
+    exit 1
+fi
+
+# Crear la lista de opciones desde 'scripts/'
+SCRIPTS_DIR="../scripts"
+if [ ! -d "$SCRIPTS_DIR" ]; then
+    clear
+    echo "Error: No se encontró el directorio '$SCRIPTS_DIR'."
+    exit 1
+fi
+
+OPCIONES=()
+for d in "$SCRIPTS_DIR"/*; do
+    if [ -d "$d" ]; then
+        OPCIONES+=("$(basename "$d")" "" "off")
+    fi
+done
+
+# Mostrar el checklist para seleccionar los directorios
+SELECCIONADOS=$(dialog --checklist "Seleccione las carpetas a enlazar:" 15 50 8 "${OPCIONES[@]}" 3>&1 1>&2 2>&3)
+
+# Si se canceló, salir
+if [ -z "$SELECCIONADOS" ]; then
+    clear
+    echo "Operación cancelada."
+    exit 1
+fi
+
+# Crear el directorio destino si no existe
+mkdir -p "$NOMBRE_DIR"
+
+# Crear enlaces simbólicos en el directorio destino
+for carpeta in $SELECCIONADOS; do
+    file="$NOMBRE_DIR/$carpeta"
+    
+    # Si ya existe un enlace simbólico, lo eliminamos
+    [ -L "$file" ] && rm "$file"
+
+    # Crear el nuevo enlace simbólico
+    ln -s "../$SCRIPTS_DIR/$carpeta" "$file"
+done
+
+# Mensaje de confirmación
+dialog --msgbox "Enlaces creados exitosamente en '$NOMBRE_DIR'." 10 50
+
+clear
+echo "Proceso completado. Enlaces creados en '$NOMBRE_DIR'."
+
