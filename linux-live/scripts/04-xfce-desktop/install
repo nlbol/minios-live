@@ -641,7 +641,7 @@ elif [ "$PACKAGE_VARIANT" = "minimum" ]; then
     set_wallpaper "Minimum"
 elif [ "$PACKAGE_VARIANT" = "novice" ]; then
     set_wallpaper "Home"
-elif [ "$DESKTOP_ENVIRONMENT" = "xfce-minunux" ]; then
+elif [ "$PACKAGE_VARIANT" = "minunux" ]; then
     set_wallpaper "Minunux"
 elif [ "$PACKAGE_VARIANT" = "standard" ]; then
     set_wallpaper "Standard"
@@ -649,8 +649,6 @@ elif [ "$PACKAGE_VARIANT" = "toolbox" ]; then
     set_wallpaper "Toolbox"
 elif [ "$PACKAGE_VARIANT" = "puzzle" ]; then
     set_wallpaper "Puzzle"
-elif [ "$DESKTOP_ENVIRONMENT" = "minunux" ]; then
-    set_wallaper "Minunux"
 elif [ "$PACKAGE_VARIANT" = "ultra" ]; then
     set_wallpaper "Ultra"
     sed -i "s/Greybird/Greybird-dark/g" /etc/skel/.config/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
