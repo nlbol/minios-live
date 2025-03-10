@@ -470,6 +470,7 @@ declare_locales() {
         ["de_DE"]="de,German,de,de,de,de"
         ["en_US"]="us,English (US),,en,,"
         ["es_ES"]="es,Spanish,es-es,es,es,es"
+        ["es_BO"]="latam,Spanish (Latin American),es-es,es,es,es"
         ["fr_FR"]="fr,French,fr,fr,fr,fr"
         ["it_IT"]="it,Italian,it,it,it,it"
         ["pt_BR"]="br,Portuguese (Brazil),pt-br,pt,pt-br,br"
@@ -1262,7 +1263,9 @@ create_config_files() {
     if [ "${DESKTOP_ENVIRONMENT}" = "flux" ]; then
         #FLUX_SETTINGS=" automount"
         FLUX_SETTINGS=""
-    elif [ "${PACKAGE_VARIANT}" = "ultra" ] || [ "${PACKAGE_VARIANT}" = "minunux" ]; then
+    elif [ "${PACKAGE_VARIANT}" = "ultra" ]; then
+	ULTRA_SETTINGS=" apparmor=0 selinux=0"
+    elif [ "${PACKAGE_VARIANT}" = "minunux" ] && [ "${SET_APPARMOR_SELINUX}" = "true" ]; then 
         ULTRA_SETTINGS=" apparmor=0 selinux=0"
     fi
 

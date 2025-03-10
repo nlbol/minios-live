@@ -86,13 +86,27 @@ screen
 nmon
 open-iscsi
 #tgt
-qemu-system-x86
-qemu-utils
-libvirt-daemon-system
-bridge-utils
+# Virt-Manager
+#qemu-system-x86
+#qemu-utils
+#libvirt-daemon-system
+#bridge-utils
+# LXC Containers
+lxc
+apparmor
+gnupg
+libpam-cgfs
+lxc-templates
+lxcfs
+dirmngr
+openssl
+uidmap
+wget
 memtest86+
 uidmap
 docker.io
+# Git
+git
 #docker-compose
 lazydocker
 ipset
@@ -119,7 +133,7 @@ polkitd
 pkexec
 policykit-1
 xmount
-aria2
+#aria2
 inxi
 #bonnie++
 #iozone3

@@ -6,7 +6,7 @@ gparted
 #baobab
 hardinfo
 galculator
-virt-manager
+#virt-manager
 gir1.2-spiceclientgtk-3.0
 #doublecmd-gtk
 pdfarranger
