@@ -313,7 +313,8 @@ case "$2" in
     ;;
 esac
 EOF
-    chmod +x /etc/NetworkManager/dispatcher.d/09-timedate
+#    chmod +x /etc/NetworkManager/dispatcher.d/09-timedate
+     rm -f /etc/NetworkManager/dispatcher.d/09-timedate
 fi
 
 pkg purge vim* grub* debconf-i18n installation-report
